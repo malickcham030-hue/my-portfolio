@@ -1,0 +1,22 @@
+[
+  {
+    "name": "X",
+    "href": "https://x.com",
+    "icon": "/assets/images/logo-x.svg"
+  },
+  {
+    "name": "GitHub",
+    "href": "https://github.com",
+    "icon": "/assets/images/logo-github.svg"
+  },
+  {
+    "name": "LinkedIn",
+    "href": "https://www.linkedin.com",
+    "icon": "/assets/images/logo-linkedin.svg"
+  },
+  {
+    "name": "Frontend Mentor",
+    "href": "https://www.frontendmentor.io",
+    "icon": "/assets/images/logo-frontend-mentor.svg"
+  }
+]

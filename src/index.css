@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* Dark mode follows a `dark` class on <html>, not the system setting, so the
+   theme button can switch it. src/main.ts adds and removes the class today;
+   in React, task 5 does. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans-Variable.ttf") format("truetype");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans-Italic-Variable.ttf") format("truetype");
+  font-weight: 100 1000;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("/assets/fonts/FiraCode-Variable.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+
+  --color-neutral-0: #f7f9fc;
+  --color-neutral-100: #eef3fa;
+  --color-neutral-200: #dbe4f0;
+  --color-neutral-300: #c5d0e0;
+  --color-neutral-400: #9aafc9;
+  --color-neutral-600: #3d5278;
+  --color-neutral-700: #243656;
+  --color-neutral-800: #152038;
+  --color-neutral-900: #0e1730;
+  --color-neutral-950: #070d1a;
+
+  --color-accent: #60a5fa;
+  --color-accent-strong: #3b82f6;
+}
+
+@layer base {
+  body {
+    @apply bg-neutral-200 font-sans text-neutral-700 antialiased;
+    background-image: url("/assets/images/pattern-light.svg"), url("/assets/images/pattern-light.svg");
+    background-repeat: no-repeat;
+    background-position: left -200px top 120px, right -200px top 520px;
+  }
+
+  .dark body {
+    @apply bg-neutral-950 text-neutral-400;
+    background-image: url("/assets/images/pattern-dark.svg"), url("/assets/images/pattern-dark.svg");
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-strong;
+  }
+}
+
+/* The article body is written in Markdown, so you cannot put Tailwind classes
+   on each <h2> and <p>. These rules style whatever lands inside
+   .article-body, whether you typed the HTML (article.html) or react-markdown
+   made it (task 4). */
+@layer components {
+  .article-body {
+    @apply flex flex-col gap-4 text-base/relaxed;
+  }
+  .article-body h2 {
+    @apply mt-4 text-2xl font-bold tracking-tight text-neutral-700 dark:text-neutral-0;
+  }
+  .article-body h3 {
+    @apply mt-2 text-xl font-bold text-neutral-700 dark:text-neutral-0;
+  }
+  .article-body strong {
+    @apply font-semibold text-neutral-700 dark:text-neutral-0;
+  }
+  .article-body ul {
+    @apply list-disc space-y-2 pl-6;
+  }
+  .article-body ol {
+    @apply list-decimal space-y-2 pl-6;
+  }
+  .article-body li::marker {
+    @apply text-accent-strong;
+  }
+  .article-body hr {
+    @apply my-2 border-neutral-200 dark:border-neutral-800;
+  }
+  .article-body blockquote {
+    @apply rounded-r-lg border-l-4 border-accent-strong bg-neutral-0 px-4 py-3 dark:bg-neutral-900;
+  }
+  .article-body code {
+    @apply rounded bg-neutral-200 px-1 py-0.5 font-mono text-sm dark:bg-neutral-800 dark:text-neutral-0;
+  }
+  .article-body pre {
+    @apply overflow-x-auto rounded-lg bg-neutral-900 p-4 text-sm text-neutral-100 dark:bg-neutral-950;
+  }
+  .article-body pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+  .article-body table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+  .article-body th,
+  .article-body td {
+    @apply border border-neutral-300 px-3 py-2 dark:border-neutral-700;
+  }
+  .article-body th {
+    @apply bg-neutral-0 font-semibold text-neutral-700 dark:bg-neutral-900 dark:text-neutral-0;
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Home",
+    "to": "/"
+  },
+  {
+    "label": "Blog",
+    "to": "/blog"
+  },
+  {
+    "label": "About",
+    "to": "/about"
+  },
+  {
+    "label": "Newsletter",
+    "to": "/newsletter"
+  }
+]

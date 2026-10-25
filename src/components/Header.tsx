@@ -1,4 +1,3 @@
-import React from 'react'
 import Avatar from './Avatar'
 import NavItem from './NavItem'
 import Mobile from './mobile'
